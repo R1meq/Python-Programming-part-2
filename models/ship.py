@@ -1,3 +1,4 @@
+"""class inherited abstract class ABC"""
 from abc import ABC, abstractmethod
 
 
@@ -18,10 +19,10 @@ class Ship(ABC):
         support_staff (int): The number of support staff members on the ship.
     """
 
-    def __init__(self, id, name, captain, current_port,
+    def __init__(self, ship_id, name, captain, current_port,
                  max_speed, max_capacity, current_load,
                  current_speed, crew_count, support_stuff):
-        self.id = id
+        self.id = ship_id
         self.name = name
         self.captain = captain
         self.current_port = current_port
@@ -37,11 +38,9 @@ class Ship(ABC):
         """
         :returns:number of people on the ship (crew count + support staff).
         """
-        pass
 
     @abstractmethod
     def calculate_load_time(self) -> float:
         """
         :returns:The estimated time to load the cargo on the ship.
         """
-        pass

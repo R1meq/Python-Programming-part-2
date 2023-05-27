@@ -1,4 +1,5 @@
-from models.Ship import Ship
+"""class inherited abstract class Ship"""
+from models.ship import Ship
 
 
 class CruiseShip(Ship):
@@ -20,10 +21,10 @@ class CruiseShip(Ship):
     """
     AVERAGE_LOAD_TIME_FOR_PASSENGER = 5
 
-    def __init__(self, id, name, captain, current_port, max_speed,
-                 max_capacity,current_load, current_speed, crew_count,
+    def __init__(self, ship_id, name, captain, current_port, max_speed,
+                 max_capacity, current_load, current_speed, crew_count,
                  support_stuff, passenger_count):
-        super().__init__(id, name, captain, current_port, max_speed,
+        super().__init__(ship_id, name, captain, current_port, max_speed,
                          max_capacity, current_load, current_speed,
                          crew_count, support_stuff)
         self.passenger_count = passenger_count

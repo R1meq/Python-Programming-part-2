@@ -1,8 +1,9 @@
-from manager.ShipManager import ShipManager
-from models.ContainerShip import ContainerShip
-from models.CruiseShip import CruiseShip
-from models.RoroShip import RoroShip
-from models.TankerShip import TankerShip
+"""import all models"""
+from manager.ship_manager import ShipManager
+from models.container_ship import ContainerShip
+from models.cruise_ship import CruiseShip
+from models.roro_ship import RoroShip
+from models.tanker_ship import TankerShip
 
 if __name__ == "__main__":
     manager = ShipManager()
@@ -44,9 +45,9 @@ if __name__ == "__main__":
     print("========================")
 
     for ship in manager.find_all_ships_with_capacity_more_than(50.2):
-        print(ship.__str__())
+        print(str(ship))
 
     print("========================")
 
     for ship in manager.find_all_ships_with_current_load_more_than(65.5):
-        print(ship.__str__())
+        print(str(ship))

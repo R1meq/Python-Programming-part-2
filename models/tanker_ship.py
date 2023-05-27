@@ -1,4 +1,5 @@
-from models.CargoShip import CargoShip
+"""class inherited abstract class Cargo Ship"""
+from models.cargo_ship import CargoShip
 
 
 class TankerShip(CargoShip):
@@ -22,10 +23,10 @@ class TankerShip(CargoShip):
         volume_in_barrels (float): The volume of cargo in barrels.
     """
 
-    def __init__(self, id, name, captain, current_port, max_speed,
-                 max_capacity,current_load, current_speed, crew_count,
+    def __init__(self, ship_id, name, captain, current_port, max_speed,
+                 max_capacity, current_load, current_speed, crew_count,
                  support_stuff, tonnage, type_of_cargo, volume_in_barrels):
-        super().__init__(id, name, captain, current_port,
+        super().__init__(ship_id, name, captain, current_port,
                          max_speed, max_capacity, current_load,
                          current_speed, crew_count,
                          support_stuff, tonnage, type_of_cargo)
