@@ -31,6 +31,7 @@ class TankerShip(CargoShip):
                          current_speed, crew_count,
                          support_stuff, tonnage, type_of_cargo)
         self.volume_in_barrels = volume_in_barrels
+        self.specific_value_set = {"oil", "gasoline"}
 
     def get_total_people_count(self) -> int:
         """

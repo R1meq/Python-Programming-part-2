@@ -32,6 +32,7 @@ class Ship(ABC):
         self.current_speed = current_speed
         self.crew_count = crew_count
         self.support_stuff = support_stuff
+        self.specific_value_set = set()
 
     @abstractmethod
     def get_total_people_count(self) -> int:
@@ -44,3 +45,5 @@ class Ship(ABC):
         """
         :returns:The estimated time to load the cargo on the ship.
         """
+    def get_attribute_by_type(self, data_type):
+        return {key: value for key, value in self.__dict__.items() if isinstance(value, data_type)}
