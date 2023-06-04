@@ -28,6 +28,7 @@ class RoroShip(CargoShip):
                          max_capacity, current_load, current_speed, crew_count,
                          support_stuff, tonnage, type_of_cargo)
         self.vehicles = vehicles
+        self.specific_value_set = {"cars", "trucks"}
 
     def calculate_load_time(self) -> float:
         """

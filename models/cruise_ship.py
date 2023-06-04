@@ -28,6 +28,7 @@ class CruiseShip(Ship):
                          max_capacity, current_load, current_speed,
                          crew_count, support_stuff)
         self.passenger_count = passenger_count
+        self.specific_value_set = {"pool", "shops", "entertaining's"}
 
     def __str__(self):
         return f"CruiseShip: id={self.id}, " \
@@ -40,7 +41,8 @@ class CruiseShip(Ship):
                f"current_speed={self.current_speed}, " \
                f"passenger_count={self.passenger_count}"
 
-    def calculate_load_time(self) -> int:
+
+    def calculate_load_time(self) -> float:
         """
         :return: The estimated time to load the passengers on the cruise ship.
         """

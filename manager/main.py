@@ -7,6 +7,7 @@ from models.tanker_ship import TankerShip
 
 if __name__ == "__main__":
     manager = ShipManager()
+
     manager.add_ship(TankerShip(20.4, "TankerShip 1",
                                 "Mike Shinoda", "Odessa", 13.5, 50.2, 40.2,
                                 11.5, 15, 28, 44.5, 10.6, "gasoline"))
@@ -46,8 +47,29 @@ if __name__ == "__main__":
 
     for ship in manager.find_all_ships_with_capacity_more_than(50.2):
         print(str(ship))
-
     print("========================")
 
-    for ship in manager.find_all_ships_with_current_load_more_than(65.5):
+    ship_list =  manager.find_all_ships_with_current_load_more_than(65.5)
+    for ship in ship_list:
         print(str(ship))
+    print("========================")
+
+    for ship in manager.get_result_of_calculate_load_time():
+        print(ship)
+    print("========================")
+
+    print(f"\n {len(manager)} ship in the manager")
+
+    print(manager.enumerating())
+    print("========================")
+
+    print(manager.zipping())
+    print("========================")
+
+    for ship in manager.ships:
+        print(ship.get_attribute_by_type(int))
+    print("========================")
+    for ship in manager.ships:
+        print(ship.get_attribute_by_type(float))
+    print("========================")
+    print(manager.if_conditions_ship_has_weight_over(50))
