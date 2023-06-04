@@ -15,6 +15,7 @@ class ShipManager:
     def __init__(self):
         self.ships = []
 
+    @log_arguments_to_file
     def add_ship(self, ship):
         """
         Adds a ship to the list of ships.
@@ -30,6 +31,7 @@ class ShipManager:
         :return:A list of ships with a maximum capacity greater than the specified value.
         """
         return list(filter(lambda a: a.max_capacity > max_capacity, self.ships))
+
     @to_tuple
     def find_all_ships_with_current_load_more_than(self, current_load):
         """
@@ -46,26 +48,17 @@ class ShipManager:
         return self.ships[item]
 
     def __iter__(self):
-        return self
+        return iter(self.ships)
 
-    @log_arguments_to_file
     def get_result_of_calculate_load_time(self):
         return [f"load time: {ship.calculate_load_time()}" for ship in self.ships]
 
-
     def enumerating(self):
-        for index, ship in enumerate(self.ships):
-            print(f"{index}: {ship}")
+        print(list(enumerate(self.ships)))
 
     def zipping(self):
-        for obj, result in zip(self.ships, self.get_result_of_calculate_load_time()):
-            print(f"{obj}: {result}")
+        print(list(zip(self.get_result_of_calculate_load_time(), self.ships)))
 
-    def if_any_ship_has_weight_over(self, current_load):
-        return any(ship.current_load >= current_load for ship in self.ships)
-
-    def if_all_ship_has_weight_over_50(self, current_load):
-        return all(ship.current_load >= current_load for ship in self.ships)
-
-
-
+    def if_conditions_ship_has_weight_over(self, current_load):
+        return {"any": any(ship.current_load >= current_load for ship in self.ships),
+                "all": all(ship.current_load >= current_load for ship in self.ships)}

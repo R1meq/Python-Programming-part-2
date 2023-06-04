@@ -1,1 +1,1 @@
-the get_result_of_calculate_load_time function is called 2 times
+the add_ship function is called 8 times

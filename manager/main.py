@@ -49,7 +49,8 @@ if __name__ == "__main__":
         print(str(ship))
     print("========================")
 
-    for ship in manager.find_all_ships_with_current_load_more_than(65.5):
+    ship_list =  manager.find_all_ships_with_current_load_more_than(65.5)
+    for ship in ship_list:
         print(str(ship))
     print("========================")
 
@@ -71,6 +72,4 @@ if __name__ == "__main__":
     for ship in manager.ships:
         print(ship.get_attribute_by_type(float))
     print("========================")
-    print(manager.if_all_ship_has_weight_over_50(50))
-    print("========================")
-    print(manager.if_any_ship_has_weight_over(50))
+    print(manager.if_conditions_ship_has_weight_over(50))
