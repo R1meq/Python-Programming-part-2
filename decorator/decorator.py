@@ -1,3 +1,7 @@
+import functools
+import logging
+
+
 def log_arguments_to_file(fnc):
     count = 0
 
@@ -18,3 +22,22 @@ def to_tuple(func):
         return tuple(result)
 
     return wrapper
+
+
+def logged(custom_exception, mode):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except custom_exception as e:
+                if mode == "console":
+                    logging.basicConfig(level=logging.INFO)
+                    logging.error(e)
+                elif mode == "file":
+                    logging.basicConfig(filename="exception.log", filemode='a', level=logging.INFO)
+                    logging.error(e)
+                else:
+                    raise ValueError("Invalid mode")
+        return wrapper
+    return decorator

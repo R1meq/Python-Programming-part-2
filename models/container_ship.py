@@ -1,4 +1,6 @@
 """class inherited abstract class Cargo Ship"""
+from decorator.decorator import logged
+from exeptions.over_max_capacity_exception import OverMaxCapacityException
 from models.cargo_ship import CargoShip
 
 
@@ -30,6 +32,13 @@ class ContainerShip(CargoShip):
                          crew_count, support_stuff, tonnage, type_of_cargo)
         self.containers = containers
         self.specific_value_set = {"electronics", "clothing"}
+
+    @logged(OverMaxCapacityException, "console")
+    def load_cargo(self, cargo_weight):
+        """ Load cargo to ship"""
+        print(self.load_cargo.__name__, self.load_cargo.__doc__)
+        if self.current_load + cargo_weight > self.max_capacity:
+            raise OverMaxCapacityException()
 
     def calculate_load_time(self) -> float:
         """
