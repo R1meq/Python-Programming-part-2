@@ -1,3 +1,4 @@
+import functools
 import logging
 
 
@@ -25,6 +26,7 @@ def to_tuple(func):
 
 def logged(custom_exception, mode):
     def decorator(func):
+        @functools.wraps(func)
         def wrapper(*args, **kwargs):
             try:
                 return func(*args, **kwargs)
@@ -33,7 +35,7 @@ def logged(custom_exception, mode):
                     logging.basicConfig(level=logging.INFO)
                     logging.error(e)
                 elif mode == "file":
-                    logging.basicConfig(filename="exception.log", level=logging.INFO)
+                    logging.basicConfig(filename="exception.log", filemode='a', level=logging.INFO)
                     logging.error(e)
                 else:
                     raise ValueError("Invalid mode")

@@ -36,6 +36,7 @@ class ContainerShip(CargoShip):
     @logged(OverMaxCapacityException, "console")
     def load_cargo(self, cargo_weight):
         """ Load cargo to ship"""
+        print(self.load_cargo.__name__, self.load_cargo.__doc__)
         if self.current_load + cargo_weight > self.max_capacity:
             raise OverMaxCapacityException()
 
